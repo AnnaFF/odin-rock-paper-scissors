@@ -31,8 +31,6 @@ console.log(humanChoice);
 const humanSelection = humanChoice;
 const computerSelection = computerChoice;
 
-
-
 //Compare input and return win/loose/tie
 function playround(computerSelection, humanSelection) {
   let message =
@@ -56,12 +54,33 @@ const result = playround(computerSelection, humanSelection);
 
 console.log(result);
 
-function playGame () {
 //Starting score for game
 let humanScore = 0;
 let computerScore = 0;
-let win = (result = "You win! Paper beats Rock" || "You win! Scissors beats Paper" || "You win! Scissors beats Rock"
-let lose = 
 
+function playGame() {
+  let win =
+    result === "You win! Paper beats Rock" ||
+    "You win! Scissors beats Paper" ||
+    "You win! Scissors beats Rock";
+  let lose =
+    result === "You lose! Rock beats Scissors" ||
+    "You lose! scissors beats Paper" ||
+    "You lose! Paper beats Rock";
+  let tie = result === "It's a tie! Try again.";
+
+  if (result === win) {
+    humanScore++;
+  } else if (result === lose) {
+    computerScore++;
+  }
 }
 
+playGame();
+playGame();
+playGame();
+playGame();
+playGame();
+
+console.log(humanScore);
+console.log(computerScore);
